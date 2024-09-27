@@ -2,18 +2,11 @@
 
 Это пример статического сайта, созданного для курса "Проектирование и развертывание веб-решений в эко-системе Python".
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Сайт создан при помощи генератора статических сайтов [MkDocs](https://www.mkdocs.org).
 
-## Commands
+## Структура проекта
 
-- `mkdocs new [dir-name]` - Create a new project.
-- `mkdocs serve` - Start the live-reloading docs server.
-- `mkdocs build` - Build the documentation site.
-- `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
+    mkdocs.yml    # Файл конфигурации.
     docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+        index.md  # Главная страница сайта.
+        ...       # Другие страницы, изображения и файлы.

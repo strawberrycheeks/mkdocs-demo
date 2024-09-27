@@ -1,0 +1,5 @@
+site_name: Название сайта
+nav:
+  - Главная страница: index.md
+  - О сайте: about.md
+theme: readthedocs

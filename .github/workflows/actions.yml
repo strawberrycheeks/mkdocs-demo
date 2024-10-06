@@ -1,0 +1,36 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  build:
+    name: Build and deploy MkDocs static site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Python setup
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
+      - name: MkDocs setup
+        run: pip install mkdocs
+
+      - name: Build
+        run: mkdocs build --clean
+
+      - name: Deploy
+        run: mkdocs gh-deploy --force
+        env:
+          CONFIG_FILE: mkdocs.yml
+          USERNAME: github-actions[bot]

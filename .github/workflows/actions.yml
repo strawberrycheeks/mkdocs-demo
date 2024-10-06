@@ -1,13 +1,9 @@
-name: Deploy to GitHub Pages
+name: Publish static site via GitHub Pages
 
 on:
   push:
     branches:
       - main
-
-permissions:
-  contents: write
-  pages: write
 
 jobs:
   build:
@@ -15,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout main
         uses: actions/checkout@v3
 
       - name: Python setup
@@ -30,7 +26,7 @@ jobs:
         run: mkdocs build --clean
 
       - name: Deploy
-        run: mkdocs gh-deploy --force
+        uses: strawberrycheeks/mkdocs-demo@main
         env:
           CONFIG_FILE: mkdocs.yml
-          USERNAME: github-actions[bot]
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
